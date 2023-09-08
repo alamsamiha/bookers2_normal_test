@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
+
+  #####  ここはエラーに関係ありません  #####
   rescue_from NoMethodError do
     redirect_to books_path
   end
+  #####################################
 
   def show
     @user = User.find(params[:id])
